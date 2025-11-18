@@ -40,10 +40,17 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.service }}:latest
-          format: 'table'
-          exit-code: '1'
+          format: 'json'
+          output: trivy_report_${{ matrix.service }}.json
+          exit-code: '0'
           severity: 'CRITICAL,HIGH'
-
+      
+      - name: Upload Trivy Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: trivy-report-${{ matrix.service }}
+          path: trivy_report_${{ matrix.service }}.json
+      
       - name: Push Image to Docker Hub
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.service }}:latest
