@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        service: ["vote", "Result", "worker",]
+        service: ["vote", "result", "worker",]
 
     steps:
       - name: Checkout
