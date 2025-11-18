@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: ["vote", "Result", "worker"]
+        service: ["vote", "result", "worker"]
 
     steps:
       - name: Checkout
