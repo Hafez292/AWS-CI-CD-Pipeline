@@ -45,7 +45,7 @@ jobs:
           severity: 'CRITICAL,HIGH'
       
       - name: Upload Trivy Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trivy-report-${{ matrix.service }}
           path: trivy_report_${{ matrix.service }}.json
