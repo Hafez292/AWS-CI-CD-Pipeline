@@ -41,7 +41,7 @@ jobs:
         with:
           image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/${{matrix.service}}:latest
           format: 'json'
-          exit-code: '0'     # Fail on vulnerabilities
+          exit-code: '0'     
           severity: 'CRITICAL,HIGH'
       
       - name: Upload Trivy Report
